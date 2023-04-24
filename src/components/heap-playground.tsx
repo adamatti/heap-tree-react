@@ -1,4 +1,4 @@
-import { useState, useRef, ChangeEvent } from 'react';
+import { useState, useRef, MouseEventHandler } from 'react';
 import { PriorityQueue } from '../heap-map';
 import ShowTree from './show-tree';
 
@@ -18,9 +18,7 @@ const HeapPlayground = ({queue}: HeapPlaygroundProps) => {
     setMax(queue.getMax);
   }
 
-  const handleAdd = (e:ChangeEvent): void => {
-    e.preventDefault();
-    
+  const handleAdd = (e:MouseEventHandler<HTMLButtonElement>): void => {
     if (!newValue.current){
       return;
     }
@@ -36,8 +34,7 @@ const HeapPlayground = ({queue}: HeapPlaygroundProps) => {
     }
   }
 
-  const handleMax = (e: ChangeEvent):void => {    
-    e.preventDefault();
+  const handleMax = (e: MouseEventHandler<HTMLButtonElement>):void => {    
     if (!oldMax.current) {
       return;
     }
